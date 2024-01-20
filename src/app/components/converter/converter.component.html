@@ -1,0 +1,23 @@
+<div class="flex flex-col items-center mt-8">
+  <div class="flex space-x-4 mb-4">
+    <select [(ngModel)]="fromCurrency" (ngModelChange)="onFromCurrencyChange()"
+            class="p-2 border border-gray-300 rounded">
+      <option *ngFor="let currency of service.currencyData()" [value]="currency.cc">{{ currency.txt }}</option>
+    </select>
+
+    <select [(ngModel)]="toCurrency" (ngModelChange)="onToCurrencyChange()"
+            class="p-2 border border-gray-300 rounded">
+      <option *ngFor="let currency of service.currencyData()" [value]="currency.cc">{{ currency.txt }}</option>
+    </select>
+  </div>
+
+  <div class="flex space-x-4 mb-4">
+    <input type="number" placeholder='Введите число' [(ngModel)]="amountFrom" (input)="convertCurrency()"
+           class="p-2 border border-gray-300 rounded">
+  </div>
+
+  <div class="mb-4 text-white" *ngIf="amountFrom">
+    <p class="text-lg  font-bold">Результат конвертации:</p>
+    <p class="text-xl  font-bold">{{ amountTo | currency }}</p>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<header class="bg-blue-500 p-4 text-white">
+  <div class="container mx-auto flex justify-between items-center">
+    <div>
+      <h1 class="text-2xl font-bold">Currency Converter App</h1>
+    </div>
+    <div class="flex items-center space-x-4">
+      <div *ngFor="let currency of converterService.currencyData()">
+        <span class="text-sm" *ngIf="currency.cc === 'USD' || currency.cc === 'EUR'">
+          {{ currency.cc === 'USD' ? 'USD' : 'EUR' }} {{ currency.rate }}
+        </span>
+      </div>
+    </div>
+  </div>
+</header>
