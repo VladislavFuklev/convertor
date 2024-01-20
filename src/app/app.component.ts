@@ -8,15 +8,10 @@ import { ConverterService } from './services/converter.service';
 })
 export class AppComponent {
   converterService = inject(ConverterService);
-  blocks = [
-    { value: 0, currency: 'RUB' },
-    { value: 0, currency: 'USD' }
-  ];
+ 
   constructor() {
     this.converterService.getCurrency();
   }
-  onChangeCurrency(currency: string) {
-    console.log(currency);
-  }
+
   
 }
